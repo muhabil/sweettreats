@@ -82,7 +82,7 @@ export default function OrderPage() {
     if (formData.notes) message += `\nCatatan: ${formData.notes}`;
 
     const encoded = encodeURIComponent(message);
-    console.log(`https://wa.me/${nomerWA}?text=${encoded}`, '_blank');
+    window.open(`https://wa.me/${nomerWA}?text=${encoded}`, '_blank');
   };
 
   return (
