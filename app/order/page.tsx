@@ -39,6 +39,9 @@ export default function OrderPage() {
 
   const filteredItems = menuItems.filter(item => item.version === version);
 
+  // ambil nomor WA dari env variable
+  const nomerWA = process.env.KEYWHATSAPP;
+
   const totalPrice = useMemo(() => {
     return Object.entries(quantities).reduce((sum, [id, qty]) => {
       const item = menuItems.find(i => i.id === parseInt(id));
@@ -79,8 +82,7 @@ export default function OrderPage() {
     if (formData.notes) message += `\nCatatan: ${formData.notes}`;
 
     const encoded = encodeURIComponent(message);
-    window.open(`https://wa.me/${6289688077467}?text=${encoded}`, '_blank');
-    //enkripsi nomor wa dengan variabel KEYWHATSAPP dan menggunakan environment variable di vercel
+    console.log(`https://wa.me/${nomerWA}?text=${encoded}`, '_blank');
   };
 
   return (
