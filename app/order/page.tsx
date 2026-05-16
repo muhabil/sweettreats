@@ -40,7 +40,7 @@ export default function OrderPage() {
   const filteredItems = menuItems.filter(item => item.version === version);
 
   // ambil nomor WA dari env variable
-  const nomerWA = process.env.KEYWHATSAPP;
+  const nomerWA = process.env.NEXT_PUBLIC_KEYWHATSAPP;
 
   const totalPrice = useMemo(() => {
     return Object.entries(quantities).reduce((sum, [id, qty]) => {
