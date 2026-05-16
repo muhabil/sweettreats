@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>sweettreats by Nabila Cinta Dewi</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;family=Playfair+Display:wght@500;700&amp;display=swap" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;family=Playfair+Display:wght@500;700&amp;display=swap');
+        
+        :root {
+            --primary: #0066ff; /* Cobalt inspired */
+        }
+        
+        body {
+            font-family: 'Inter', system_ui, sans-serif;
+        }
+        
+        .display-font {
+            font-family: 'Playfair Display', sans-serif;
+        }
+
+        .hero-bg {
+            background-image: linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.35)), url('https://picsum.photos/id/1015/2000/1200');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .product-card {
+            transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .product-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+        }
+
+        .pill {
+            border-radius: 9999px;
+        }
+
+        .section-padding {
+            padding-top: 80px;
+            padding-bottom: 80px;
+        }
+
+        .cookie-bg {
+            background-image: url('https://picsum.photos/id/292/800/600');
+            background-size: cover;
+        }
+    </style>
+</head>
+<body class="bg-white text-gray-900">
+    <!-- Promo Banner -->
+    <div class="bg-[#1a1a1a] text-white py-3 text-center text-sm font-medium flex items-center justify-center gap-2">
+        <span>🎉 Promo Spesial: Beli 12 cookies gratis 3!</span>
+        <a href="#order" onclick="navigateToOrder()" class="underline hover:no-underline">Pesan Sekarang →</a>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="sticky top-0 bg-white border-b z-50">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="h-16 flex items-center justify-between">
+                <div class="flex items-center gap-8">
+                    <div class="flex items-center gap-2">
+                        <div class="w-8 h-8 bg-amber-500 rounded-2xl flex items-center justify-center text-white font-bold text-xl">🍪</div>
+                        <div>
+                            <span class="font-semibold text-xl tracking-tight">sweettreats</span>
+                            <span class="text-xs block -mt-1 text-amber-600">by Nabila Cinta Dewi</span>
+                        </div>
+                    </div>
+                    
+                    <div class="hidden md:flex items-center gap-8 text-sm font-medium">
+                        <a href="#" onclick="navigateToHome()" class="hover:text-amber-600 transition-colors">Home</a>
+                        <a href="#products" class="hover:text-amber-600 transition-colors">Koleksi</a>
+                        <a href="#why" class="hover:text-amber-600 transition-colors">Kenapa Kami</a>
+                        <a href="#order" onclick="navigateToOrder()" class="hover:text-amber-600 transition-colors">Pesan</a>
+                    </div>
+                </div>
+                
+                <div class="flex items-center gap-4">
+                    <button onclick="navigateToOrder()" 
+                            class="pill bg-black hover:bg-zinc-800 text-white px-6 py-2.5 text-sm font-semibold transition-all active:scale-95">
+                        PESAN SEKARANG
+                    </button>
+                    <button onclick="toggleMobileMenu()" class="md:hidden w-10 h-10 flex items-center justify-center">
+                        <span class="text-2xl">☰</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <header id="home" class="hero-bg h-screen flex items-center text-white relative">
+        <div class="max-w-4xl mx-auto px-6 text-center">
+            <div class="inline-flex items-center gap-2 bg-white/20 backdrop-blur-md px-6 py-2 rounded-full mb-8">
+                <span class="text-amber-300">✦</span>
+                <span class="uppercase tracking-[2px] text-sm font-medium">Soft Cookies Premium</span>
+            </div>
+            
+            <h1 class="display-font text-6xl md:text-7xl leading-none font-medium mb-6">
+                Soft. Chewy.<br>
+                <span class="text-amber-300">Membuat hati senang.</span>
+            </h1>
+            
+            <p class="max-w-md mx-auto text-xl mb-10 text-white/90">
+                Kue cookies lembut terbaik dari dapur Nabila Cinta Dewi. Dibuat dengan cinta, disajikan dengan kebahagiaan.
+            </p>
+            
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <button onclick="navigateToOrder()" 
+                        class="pill bg-[#0066ff] hover:bg-blue-700 text-white px-10 py-5 text-lg font-semibold transition-all active:scale-95 flex items-center justify-center gap-3">
+                    <span>PESAN SEKARANG</span>
+                    <span class="text-2xl">→</span>
+                </button>
+                
+                <button onclick="document.getElementById('products').scrollIntoView({ behavior: 'smooth' })" 
+                        class="pill border-2 border-white hover:bg-white hover:text-black text-white px-8 py-5 text-lg font-medium transition-all">
+                    Lihat Koleksi
+                </button>
+            </div>
+            
+            <div class="mt-16 flex justify-center gap-8 text-sm">
+                <div class="flex items-center gap-2">
+                    <span class="text-green-400">✓</span>
+                    <span>Fresh every day</span>
+                </div>
+                <div class="flex items-center gap-2">
+                    <span class="text-green-400">✓</span>
+                    <span>100% homemade</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce">
+            <div class="w-6 h-10 border-2 border-white rounded-full flex items-center justify-center">
+                <div class="w-1 h-2 bg-white rounded-full animate-scroll"></div>
+            </div>
+        </div>
+    </header>
+
+    <!-- TRUST BAR -->
+    <div class="bg-white py-6 border-b">
+        <div class="max-w-6xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-6 text-center text-sm">
+            <div class="flex items-center justify-center gap-3">
+                <div class="text-3xl">🍪</div>
+                <div>
+                    <div class="font-semibold">Soft Cookies</div>
+                    <div class="text-gray-500 text-xs">Tekstur premium</div>
+                </div>
+            </div>
+            <div class="flex items-center justify-center gap-3">
+                <div class="text-3xl">🚚</div>
+                <div>
+                    <div class="font-semibold">Pengiriman Cepat</div>
+                    <div class="text-gray-500 text-xs">Same day di area tertentu</div>
+                </div>
+            </div>
+            <div class="flex items-center justify-center gap-3">
+                <div class="text-3xl">❤️</div>
+                <div>
+                    <div class="font-semibold">Made with Love</div>
+                    <div class="text-gray-500 text-xs">Oleh Nabila Cinta Dewi</div>
+                </div>
+            </div>
+            <div class="flex items-center justify-center gap-3">
+                <div class="text-3xl">⭐</div>
+                <div>
+                    <div class="font-semibold">4.98/5</div>
+                    <div class="text-gray-500 text-xs">Dari 200+ pelanggan</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- FEATURED PRODUCTS -->
+    <section id="products" class="section-padding bg-white">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <span class="uppercase tracking-widest text-amber-600 text-sm font-medium">Signature Collection</span>
+                <h2 class="display-font text-5xl font-medium mt-3">Pilihan Favorit</h2>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Product 1 -->
+                <div onclick="selectProduct(this)" class="product-card group cursor-pointer bg-white border border-gray-100 rounded-3xl overflow-hidden">
+                    <div class="h-80 cookie-bg relative">
+                        <div class="absolute top-6 right-6 bg-white px-4 py-1 rounded-full text-xs font-bold shadow">BESTSELLER</div>
+                    </div>
+                    <div class="p-8">
+                        <div class="flex justify-between items-start">
+                            <div>
+                                <h3 class="text-2xl font-semibold">Classic Chocolate Chip</h3>
+                                <p class="text-gray-500 mt-1">Rp 45.000 / 6 pcs</p>
+                            </div>
+                            <div class="text-3xl">🍫</div>
+                        </div>
+                        <p class="text-sm text-gray-600 mt-4 line-clamp-2">Cookies klasik dengan dark chocolate chunks premium. Lumer di mulut.</p>
+                    </div>
+                </div>
+
+                <!-- Product 2 -->
+                <div onclick="selectProduct(this)" class="product-card group cursor-pointer bg-white border border-gray-100 rounded-3xl overflow-hidden">
+                    <div class="h-80 bg-[url('https://picsum.photos/id/431/800/600')] bg-cover relative"></div>
+                    <div class="p-8">
+                        <div class="flex justify-between items-start">
+                            <div>
+                                <h3 class="text-2xl font-semibold">Red Velvet Dream</h3>
+                                <p class="text-gray-500 mt-1">Rp 48.000 / 6 pcs</p>
+                            </div>
+                            <div class="text-3xl">❤️</div>
+                        </div>
+                        <p class="text-sm text-gray-600 mt-4 line-clamp-2">Cookies red velvet dengan cream cheese filling. Manis lembut.</p>
+                    </div>
+                </div>
+
+                <!-- Product 3 -->
+                <div onclick="selectProduct(this)" class="product-card group cursor-pointer bg-white border border-gray-100 rounded-3xl overflow-hidden">
+                    <div class="h-80 bg-[url('https://picsum.photos/id/63/800/600')] bg-cover relative"></div>
+                    <div class="p-8">
+                        <div class="flex justify-between items-start">
+                            <div>
+                                <h3 class="text-2xl font-semibold">Matcha White Choco</h3>
+                                <p class="text-gray-500 mt-1">Rp 50.000 / 6 pcs</p>
+                            </div>
+                            <div class="text-3xl">🍵</div>
+                        </div>
+                        <p class="text-sm text-gray-600 mt-4 line-clamp-2">Matcha Jepang premium dengan white chocolate chunks.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- WHY US -->
+    <section id="why" class="section-padding bg-zinc-50">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid md:grid-cols-12 gap-16 items-center">
+                <div class="md:col-span-5">
+                    <img src="https://picsum.photos/id/201/800/900" alt="Nabila baking" 
+                         class="rounded-3xl w-full shadow-2xl">
+                </div>
+                <div class="md:col-span-7">
+                    <span class="text-amber-600 font-medium">DIBUAT DENGAN CINTA</span>
+                    <h2 class="display-font text-5xl leading-tight mt-3 mb-8">
+                        Setiap gigitan adalah cerita kebahagiaan
+                    </h2>
+                    
+                    <div class="space-y-10">
+                        <div class="flex gap-6">
+                            <div class="w-12 h-12 bg-amber-100 rounded-2xl flex items-center justify-center flex-shrink-0 text-3xl">🌾</div>
+                            <div>
+                                <h4 class="font-semibold text-xl">Bahan Premium</h4>
+                                <p class="text-gray-600">Butter Irlandia, Belgian chocolate, dan tepung impor pilihan.</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-6">
+                            <div class="w-12 h-12 bg-amber-100 rounded-2xl flex items-center justify-center flex-shrink-0 text-3xl">👩🏻‍🍳</div>
+                            <div>
+                                <h4 class="font-semibold text-xl">Resep Rahasia Nabila</h4>
+                                <p class="text-gray-600">Dikembangkan selama bertahun-tahun untuk tekstur yang sempurna.</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-6">
+                            <div class="w-12 h-12 bg-amber-100 rounded-2xl flex items-center justify-center flex-shrink-0 text-3xl">📦</div>
+                            <div>
+                                <h4 class="font-semibold text-xl">Fresh Daily</h4>
+                                <p class="text-gray-600">Dipanggang setiap pagi, dikirim dalam keadaan hangat.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ORDER PAGE / SECTION -->
+    <section id="order" class="section-padding bg-white border-t-8 border-amber-400">
+        <div class="max-w-5xl mx-auto px-6">
+            <div class="text-center mb-12">
+                <span class="px-6 py-2 bg-amber-100 text-amber-700 rounded-full text-sm font-medium">CHECKOUT VIA WHATSAPP</span>
+                <h2 class="display-font text-5xl font-medium mt-6">Buat Pesananmu</h2>
+                <p class="text-gray-600 mt-3 max-w-md mx-auto">Pilih varian, jumlah, dan kirim pesanan langsung ke WhatsApp kami</p>
+            </div>
+
+            <div class="bg-zinc-50 border rounded-3xl p-8 md:p-12">
+                <form id="orderForm" onsubmit="sendToWhatsApp(event)" class="space-y-10">
+                    <!-- Customer Info -->
+                    <div>
+                        <h3 class="font-semibold text-lg mb-4">Informasi Pemesan</h3>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <label class="block text-sm mb-1.5">Nama Lengkap</label>
+                                <input id="nama" type="text" required 
+                                       class="w-full px-5 py-4 rounded-2xl border border-gray-200 focus:border-blue-500 outline-none">
+                            </div>
+                            <div>
+                                <label class="block text-sm mb-1.5">Nomor WhatsApp</label>
+                                <input id="wa" type="tel" required placeholder="081234567890"
+                                       class="w-full px-5 py-4 rounded-2xl border border-gray-200 focus:border-blue-500 outline-none">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Products -->
+                    <div>
+                        <h3 class="font-semibold text-lg mb-4">Pilih Cookies</h3>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4" id="productOptions">
+                            <!-- Populated by JS -->
+                        </div>
+                    </div>
+
+                    <!-- Notes -->
+                    <div>
+                        <label class="block text-sm mb-1.5">Catatan Tambahan (opsional)</label>
+                        <textarea id="notes" rows="3" 
+                                  class="w-full px-5 py-4 rounded-3xl border border-gray-200 focus:border-blue-500 outline-none resize-y"
+                                  placeholder="Alamat lengkap, waktu pengiriman, dll..."></textarea>
+                    </div>
+
+                    <button type="submit"
+                            class="w-full py-6 bg-[#0066ff] hover:bg-blue-700 text-white text-xl font-semibold pill transition-all active:scale-[0.985]">
+                        KIRIM PESANAN VIA WHATSAPP
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section class="py-20 bg-white">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center mb-12">
+                <h2 class="display-font text-4xl">Apa Kata Mereka</h2>
+            </div>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-white p-8 rounded-3xl border">
+                    <p class="italic">"Cookies paling enak yang pernah saya coba. Soft banget, chocolate-nya meleleh!"</p>
+                    <div class="mt-8 flex items-center gap-3">
+                        <div class="w-10 h-10 bg-zinc-200 rounded-full"></div>
+                        <div>
+                            <div class="font-medium">Rina Pratiwi</div>
+                            <div class="text-xs text-gray-500">Jakarta</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-white p-8 rounded-3xl border">
+                    <p class="italic">"Pesan ulang tiap minggu buat anak-anak. Mereka suka banget varian matchanya."</p>
+                    <div class="mt-8 flex items-center gap-3">
+                        <div class="w-10 h-10 bg-zinc-200 rounded-full"></div>
+                        <div>
+                            <div class="font-medium">Andi Saputra</div>
+                            <div class="text-xs text-gray-500">Bandung</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-white p-8 rounded-3xl border">
+                    <p class="italic">"Packaging cantik, rasanya juara. Cocok buat oleh-oleh!"</p>
+                    <div class="mt-8 flex items-center gap-3">
+                        <div class="w-10 h-10 bg-zinc-200 rounded-full"></div>
+                        <div>
+                            <div class="font-medium">Sinta Melati</div>
+                            <div class="text-xs text-gray-500">Surabaya</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-zinc-900 text-white pt-16 pb-8">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between gap-12">
+                <div>
+                    <div class="flex items-center gap-3 text-2xl mb-6">
+                        🍪 <span class="font-semibold">sweettreats</span>
+                    </div>
+                    <p class="max-w-xs text-gray-400">Soft cookies homemade premium oleh Nabila Cinta Dewi.</p>
+                </div>
+                
+                <div class="grid grid-cols-3 gap-12 text-sm">
+                    <div>
+                        <div class="font-medium mb-4">Navigasi</div>
+                        <div class="space-y-2 text-gray-400">
+                            <div>Home</div>
+                            <div>Koleksi</div>
+                            <div>Pesan</div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="font-medium mb-4">Kontak</div>
+                        <div class="space-y-2 text-gray-400">
+                            <div>WA: 0812-3456-7890</div>
+                            <div>IG: @sweettreats.ncd</div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="font-medium mb-4">Jam Operasional</div>
+                        <div class="text-gray-400">
+                            Senin - Minggu<br>
+                            08.00 - 20.00 WIB
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mt-16 pt-8 border-t border-white/10 text-center text-xs text-gray-500">
+                © 2026 sweettreats by Nabila Cinta Dewi. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Tailwind script already included
+        
+        function toggleMobileMenu() {
+            alert("Menu mobile dalam versi lengkap. Silakan pesan via WhatsApp langsung.");
+        }
+        
+        function navigateToOrder() {
+            document.getElementById('order').scrollIntoView({ behavior: 'smooth' });
+        }
+        
+        function navigateToHome() {
+            document.getElementById('home').scrollIntoView({ behavior: 'smooth' });
+        }
+        
+        // Sample products
+        const products = [
+            { name: "Classic Chocolate Chip", price: "45000", qty: 6, emoji: "🍫" },
+            { name: "Red Velvet Dream", price: "48000", qty: 6, emoji: "❤️" },
+            { name: "Matcha White Choco", price: "50000", qty: 6, emoji: "🍵" },
+            { name: "Salted Caramel", price: "47000", qty: 6, emoji: "🧂" }
+        ];
+        
+        function renderProductOptions() {
+            const container = document.getElementById('productOptions');
+            container.innerHTML = '';
+            
+            products.forEach((product, index) => {
+                const div = document.createElement('div');
+                div.className = `p-6 border-2 border-transparent hover:border-amber-300 bg-white rounded-3xl transition-all cursor-pointer flex gap-4 items-center`;
+                div.innerHTML = `
+                    <div class="text-5xl">${product.emoji}</div>
+                    <div class="flex-1">
+                        <div class="font-medium">${product.name}</div>
+                        <div class="text-sm text-gray-500">Rp ${parseInt(product.price).toLocaleString('id-ID')} / ${product.qty} pcs</div>
+                    </div>
+                    <input type="number" id="qty-${index}" value="0" min="0" 
+                           class="w-16 text-center border rounded-2xl py-3 focus:border-blue-500 outline-none">
+                `;
+                container.appendChild(div);
+            });
+        }
+        
+        function selectProduct(el) {
+            navigateToOrder();
+        }
+        
+        function sendToWhatsApp(e) {
+            e.preventDefault();
+            
+            const nama = document.getElementById('nama').value || "Pelanggan";
+            const waNumber = document.getElementById('wa').value.replace(/\D/g,'');
+            const notes = document.getElementById('notes').value;
+            
+            let orderText = `Halo Nabila! Saya mau pesan cookies:\n\n`;
+            orderText += `Nama: ${nama}\n`;
+            
+            let totalItems = 0;
+            
+            products.forEach((product, index) => {
+                const qty = parseInt(document.getElementById(`qty-${index}`).value) || 0;
+                if (qty > 0) {
+                    orderText += `- ${product.name} × ${qty}\n`;
+                    totalItems += qty;
+                }
+            });
+            
+            if (totalItems === 0) {
+                alert("Silakan pilih minimal satu varian cookies.");
+                return;
+            }
+            
+            if (notes) orderText += `\nCatatan:\n${notes}\n`;
+            
+            orderText += `\nTerima kasih! 🙏`;
+            
+            const encoded = encodeURIComponent(orderText);
+            const url = `https://wa.me/6281234567890?text=${encoded}`;
+            
+            window.open(url, '_blank');
+        }
+        
+        // Initialize
+        window.onload = function() {
+            renderProductOptions();
+            
+            // Add some scroll animation support
+            console.log('%c sweettreats by Nabila Cinta Dewi - Landing page siap!', 'color: #0066ff; font-family: monospace');
+        }
+    </script>
+</body>
+</html>
