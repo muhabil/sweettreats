@@ -79,7 +79,8 @@ export default function OrderPage() {
     if (formData.notes) message += `\nCatatan: ${formData.notes}`;
 
     const encoded = encodeURIComponent(message);
-    window.open(`https://wa.me/6285373735049?text=${encoded}`, '_blank');
+    window.open(`https://wa.me/${process.env.KEYWHATSAPP}?text=${encoded}`, '_blank');
+    //enkripsi nomor wa dengan variabel KEYWHATSAPP dan menggunakan environment variable di vercel
   };
 
   return (
